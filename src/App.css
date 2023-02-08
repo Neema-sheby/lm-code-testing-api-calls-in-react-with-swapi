@@ -58,3 +58,9 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 4rem; }
+
+.loading {
+  width: 100%;
+  font-size: 1.8rem;
+  margin: 5rem 0;
+  text-align: center; }
