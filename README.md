@@ -2,14 +2,14 @@
 
 ## Getting started
 
-### How to install and run the Project:
+### To install the dependency run:
 
 `npm install`
 
-`npm run build`
+### To run the files :
 
-`npm run start`
+`npm start`
 
-### How to run test:
+### To test the files run:
 
-`npm run test`
+`npm test`
