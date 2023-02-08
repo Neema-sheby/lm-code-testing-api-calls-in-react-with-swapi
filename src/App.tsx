@@ -15,11 +15,17 @@ const App: React.FC = () => {
 
         if (!response.ok) {
           if (response.status === 500)
-            throw new Error("Oops... something went wrong, try again 🤕");
+            throw new Error(
+              `Error: ${response.status} Oops... something went wrong, try again 🤕`
+            );
           else if (response.status === 418)
-            throw new Error(`418 I&apos;m a tea pot 🫖, silly`);
+            throw new Error(
+              `Error: ${response.status} I&apos;m a tea pot 😁, silly`
+            );
           else {
-            throw new Error(`Oops... something went wrong, try again 🤕`);
+            throw new Error(
+              `Error: ${response.status} Oops... something went wrong in fetching data 🤕`
+            );
           }
         }
 
@@ -50,7 +56,7 @@ const App: React.FC = () => {
               <Card key={Math.random() * 10 + obj.name} title={obj.name} />
             );
           })}
-        {error && <div>{error}</div>}
+        {error && <div role="alert">{error}</div>}
       </div>
     </div>
   );

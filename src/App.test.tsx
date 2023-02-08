@@ -43,4 +43,11 @@ it("renders error message when error status 500", async () => {
   );
 
   render(<App />);
+
+  await waitFor(() => screen.findByRole("alert"));
+  const alert = screen.getByRole("alert");
+
+  expect(alert).toHaveTextContent(
+    "Error: 500 Oops... something went wrong, try again 🤕"
+  );
 });
