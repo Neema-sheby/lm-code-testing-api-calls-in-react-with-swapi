@@ -1,4 +1,14 @@
+$color-white: #fff;
 $color-black: #000;
+$color-cyan: rgb(0, 216, 214);
 $color-grey: #535c68;
+$color-red: red;
+$color-red--danger: rgb(217, 83, 79);
 $color-grey--light: #ecf0f1;
 $color-black--transparent: rgba(0, 0, 0, 0.7);
+
+$box-shadow--red: 0 0 10px 1px rgba(217, 83, 79, 0.5);
+$box-shadow--cyan: 0 0 10px 1px rgba(0, 216, 214, 0.5);
+$box-shadow--white: 0 0 10px 2px rgba(255, 255, 255, 0.3);
+
+$border-radius--large: 3rem;

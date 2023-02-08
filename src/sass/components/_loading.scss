@@ -1,6 +1,10 @@
 .loading {
+  color: $color-white;
   width: 100%;
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin: 5rem 0;
   text-align: center;
+  text-shadow: 5px 5px 30px $color-cyan;
+  animation: flashing 5s linear;
+  -webkit-animation: flashing 4s linear infinite;
 }

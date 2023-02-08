@@ -4,7 +4,7 @@ import { render, screen, waitFor, within } from "@testing-library/react";
 import App from "./App";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
-import { ErrorMessages } from "./Error/ErrorMessages";
+import { ErrorMessages } from "./Components/Error/ErrorMessages";
 const { error500, error418 } = ErrorMessages;
 
 /////////////////////////////////////////////////////////////////////////////////////

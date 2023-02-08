@@ -1,0 +1,9 @@
+.error {
+  font-size: 1.6rem;
+  color: $color-red--danger;
+  text-shadow: 0 5px 40px $color-red;
+  background-color: $color-black--transparent;
+  padding: 3rem;
+  box-shadow: $box-shadow--red;
+  margin-top: 5rem;
+}

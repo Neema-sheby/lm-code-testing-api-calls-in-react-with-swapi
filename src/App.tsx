@@ -3,8 +3,8 @@ import "./App.css";
 import Header from "./Components/Header";
 import Card from "./Components/Card";
 import Loading from "./Components/Loading";
-import { StarWarData } from "./Interface/starWarData";
-import { ErrorMessages } from "./Error/ErrorMessages";
+import { StarWarData } from "./Components/Interface";
+import { ErrorMessages } from "./Components/Error/ErrorMessages";
 
 const App: React.FC = () => {
   const [data, setData] = useState<Array<StarWarData>>([]);
@@ -36,26 +36,33 @@ const App: React.FC = () => {
         setData(starWarResults);
         setIsLoading(false);
       } catch (err) {
+        setIsLoading(false);
         let message: string = "unknown message";
         if (err instanceof Error) message = err.message;
         setError(message);
       }
     };
     fetchData();
-  }, [isLoading, error]);
+  }, []);
 
   return (
     <div className="container">
       <Header />
       <div role="list" className="card__container">
-        {isLoading ? <Loading /> : null}
-        {data &&
+        {isLoading ? (
+          <Loading />
+        ) : (
           data.map((obj) => {
             return (
               <Card key={Math.random() * 10 + obj.name} title={obj.name} />
             );
-          })}
-        {error && <div role="alert">{error}</div>}
+          })
+        )}
+        {error && (
+          <div role="alert" className="error">
+            {error}
+          </div>
+        )}
       </div>
     </div>
   );

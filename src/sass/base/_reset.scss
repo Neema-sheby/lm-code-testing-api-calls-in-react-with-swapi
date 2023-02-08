@@ -9,6 +9,13 @@
 
 body {
   padding: 6rem 10rem;
+  overflow-x: hidden;
+  @include respond(tab-port) {
+    padding: 3rem;
+  }
+  @include respond(phone) {
+    padding: 1rem;
+  }
 }
 
 .container {
@@ -17,4 +24,13 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 5rem 1rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(0.5rem);
+  box-shadow: $box-shadow--white;
+  border-radius: $border-radius--large;
+  -webkit-border-radius: $border-radius--large;
+  -moz-border-radius: $border-radius--large;
+  -ms-border-radius: $border-radius--large;
+  -o-border-radius: $border-radius--large;
 }
