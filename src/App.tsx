@@ -1,3 +1,5 @@
+//////////////////////////////////////////////////////////////////////////////////
+
 import React, { useEffect, useState } from "react";
 import "./App.css";
 import Header from "./Components/Header";
@@ -5,6 +7,8 @@ import Card from "./Components/Card";
 import Loading from "./Components/Loading";
 import { StarWarData } from "./Components/Interface";
 import { ErrorMessages } from "./Components/Error/ErrorMessages";
+
+//////////////////////////////////////////////////////////////////////////////////
 
 const App: React.FC = () => {
   const [data, setData] = useState<Array<StarWarData>>([]);
