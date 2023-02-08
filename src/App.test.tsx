@@ -23,7 +23,7 @@ beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
 
-it("renders the name of the first person", async () => {
+it("renders the first name in the listadd", async () => {
   render(<App />);
 
   const cardList = screen.getByRole("list");
@@ -33,4 +33,14 @@ it("renders the name of the first person", async () => {
   const headings = within(cardList).getAllByRole("heading");
 
   expect(headings[0]).toHaveTextContent("star wars 1");
+});
+
+it("renders error message when error status 500", async () => {
+  server.use(
+    rest.get("https://swapi.py4e.com/api/people", (req, res, ctx) => {
+      return res(ctx.status(500));
+    })
+  );
+
+  render(<App />);
 });
