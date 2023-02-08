@@ -3,29 +3,22 @@ import "./App.css";
 import Header from "./Components/Header";
 import Card from "./Components/Card";
 import { StarWarData } from "./Interface/starWarData";
+import { ErrorMessages } from "./Error/ErrorMessages";
 
 const App: React.FC = () => {
   const [data, setData] = useState<Array<StarWarData>>([]);
   const [error, setError] = useState<string>("");
-
+  const { error500, error418, errorFetch } = ErrorMessages;
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch(`https://swapi.py4e.com/api/people`);
 
         if (!response.ok) {
-          if (response.status === 500)
-            throw new Error(
-              `Error: ${response.status} Oops... something went wrong, try again 🤕`
-            );
-          else if (response.status === 418)
-            throw new Error(
-              `Error: ${response.status} I&apos;m a tea pot 😁, silly`
-            );
+          if (response.status === 500) throw new Error(error500);
+          else if (response.status === 418) throw new Error(error418);
           else {
-            throw new Error(
-              `Error: ${response.status} Oops... something went wrong in fetching data 🤕`
-            );
+            throw new Error(errorFetch);
           }
         }
 
