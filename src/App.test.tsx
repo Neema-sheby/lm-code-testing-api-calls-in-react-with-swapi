@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor, within } from "@testing-library/react";
 import App from "./App";
 import { rest } from "msw";
 import { setupServer } from "msw/node";
@@ -22,3 +22,15 @@ const server = setupServer(...handlers);
 beforeAll(() => server.listen());
 afterEach(() => server.resetHandlers());
 afterAll(() => server.close());
+
+it("renders the name of the first person", async () => {
+  render(<App />);
+
+  const cardList = screen.getByRole("list");
+
+  await waitFor(() => screen.findAllByRole("listitem"));
+
+  const headings = within(cardList).getAllByRole("heading");
+
+  expect(headings[0]).toHaveTextContent("star wars 1");
+});
